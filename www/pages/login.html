@@ -1,0 +1,22 @@
+<main class="login">
+	<div>
+		<h1>Login Task Manager</h1>	
+	</div>
+	
+	<br>
+	<label class="item item-input">
+		<span class="input-label">Usuario</span>
+  		<input type="text" ng-model="user">
+	</label>
+	<label class="item item-input">
+  		<span class="input-label">Password</span>
+  		<input type="password" ng-model="pass">
+	</label>
+	<br>
+	<span class="error" ng-show="error">Usurio o contraseña incorrecta!</span>
+	<button class="button button-positive" ng-click="login(user, pass)">Ingresar</button>
+	<br>
+	<span class="linkRegistro" ui-sref="registrarUsr">
+	Registrate
+	</span>	
+</main>
