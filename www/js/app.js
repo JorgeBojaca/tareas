@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic']);
+var app = angular.module('starter', ['ionic', 'chart.js']);
 
 app.run(function ($ionicPlatform, $state) {
 	$ionicPlatform.ready(function () {
@@ -46,7 +46,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/home',
 		controller: 'homeCtrl'
 	});
-	$urlRouterProvider.otherwise('/');
+    $stateProvider.state('grafico', {
+		templateUrl: 'pages/grafico.html',
+		url: '/grafico',
+		controller: 'graficoCtrl'
+	});
+	$urlRouterProvider.otherwise('/grafico');
 });
 
 app.controller('loginCtrl', ["$scope", 'users', '$state', 'currentUser',
@@ -98,6 +103,20 @@ app.controller('homeCtrl', ["$scope", "$state", 'currentUser', function ($scope,
 		$state.go('login');
 	}
 }]);
+
+app.controller('graficoCtrl', ["$scope", function ($scope) {
+    $scope.labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
+    $scope.series = ['Mes'];
+    $scope.type = 'bar';
+       $scope.data = [8000000, 5500000, 3000000, 5130000, 10000000, 7254000];
+    $scope.colors = ["#0E0664","#373268","#03001F","#191072","#08014A","#1E0DC7"];
+    
+    $scope.aumentar = function () {
+        $scope.data[2]=6000000;
+    }
+}]);
+    
+
 
 app.factory('currentUser', function () {
 	var currentUser = angular.fromJson(window.localStorage['currentUser'] || '{}');
