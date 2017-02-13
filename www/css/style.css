@@ -91,3 +91,8 @@ ion-pane {
 	height: 74%;
 	cursor: pointer;
 }
+
+.contentChart {
+    position: absolute;
+    width: 50%;
+}

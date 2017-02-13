@@ -1,8 +1,16 @@
 <br>
 <br>
-<canvas id="base" class="chart chart-bar"
-        chart-colors="colors" chart-data="data" chart-labels="labels" > chart-series="series"
+<div class="contentChart">
     
-</canvas>
-<br>
+        <!--<option value="">Seleccione el plan</option>-->
+    <select ng-model="grafico.planSel">
+        <option value="0" disabled selected>Select your option</option>
+        <option value="{{$index}}"ng-repeat= "plan in grafico.planes">{{plan.id}}
+        </option>
+    </select>
+    <canvas id="base" class="chart chart-bar"
+            chart-colors="colors" chart-data="grafico.planes[grafico.planSel].data" chart-labels="grafico.planes[grafico.planSel].labels" > chart-series="series"
+    </canvas>
 <button ng-click="aumentar()">Aumentar</button>
+</div>
+<br>

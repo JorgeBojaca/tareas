@@ -49,7 +49,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state('grafico', {
 		templateUrl: 'pages/grafico.html',
 		url: '/grafico',
-		controller: 'graficoCtrl'
+		controller: 'graficoCtrl as grafico'
 	});
 	$urlRouterProvider.otherwise('/grafico');
 });
@@ -105,11 +105,25 @@ app.controller('homeCtrl', ["$scope", "$state", 'currentUser', function ($scope,
 }]);
 
 app.controller('graficoCtrl', ["$scope", function ($scope) {
-    $scope.labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
-    $scope.series = ['Mes'];
-    $scope.type = 'bar';
-       $scope.data = [8000000, 5500000, 3000000, 5130000, 10000000, 7254000];
-    $scope.colors = ["#0E0664","#373268","#03001F","#191072","#08014A","#1E0DC7"];
+    var vm = this;
+    vm.planSel= 0;
+    vm.planes = [
+        {
+            id: 1,
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+            data: [5,3,7,8,3,6]
+        },
+        {
+            id: 2,
+            labels: ['Julio', 'Abosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            data: [6,3,8,7,3,5]
+        }
+    ]
+    vm.labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
+    vm.series = ['Mes'];
+    vm.type = 'bar';
+       vm.data = [8000000, 5500000, 3000000, 5130000, 10000000, 7254000];
+    vm.colors = ["#0E0664","#373268","#03001F","#191072","#08014A","#1E0DC7"];
     
     $scope.aumentar = function () {
         $scope.data[2]=6000000;
