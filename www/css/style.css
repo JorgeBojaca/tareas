@@ -1,6 +1,7 @@
 /* Empty. Add your own CSS if you like */
 body {
     font-family: "Verdana";
+    background-color: #F2F2F2;
 }
 .title {
     /*    background-color: coral;*/
@@ -95,4 +96,44 @@ ion-pane {
 .contentChart {
     position: absolute;
     width: 50%;
+    background-color: white;
+    //display: inline-block;
+    z-index: 10;
+    
+    
+}
+.contentChart::after {
+    content: "";
+    position: absolute;
+    right: -10%;
+   /* border-width: 15px 15px 0;
+    border-style: solid; */
+    /* border-color: #f3961c transparent; */
+    background-color: white;
+/*    border-right: solid;
+    border-color: aqua;
+    border-width: 5px;*/
+    border-radius: 50%;
+    display: block;
+    width: 20%;
+    top: 0%;
+    height: 100%;
+    z-index: -10;
+    -webkit-box-shadow: 17px 7px 30px -6px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    17px 7px 30px -6px rgba(50, 50, 50, 0.75);
+    box-shadow:         17px 7px 30px -6px rgba(50, 50, 50, 0.75);
+}
+.curva {
+    position: absolute;
+    background-color: black;
+    width: 10%;
+    height: 37%;
+    top: 41px;
+    left: 45%;
+    border-radius: 50%;
+    border-right: solid;
+    border-color: aqua;
+    border-width: 10px;
+    z-index: -1;
+    /*border-style: solid;*/
 }
